@@ -7,7 +7,7 @@ class AppetizerData {
 
 List<AppetizerData> appetizerData = [
   AppetizerData(ititle: 'Hot & Sour Chicken', img: 'assets/Rectangle 8.png'),
-  AppetizerData(ititle: 'Creamy Chicken', img: 'assets/Rectangle 8.png'),
+  // AppetizerData(ititle: 'Creamy Chicken', img: 'assets/Rectangle 8.png'),
   AppetizerData(ititle: 'Hot & Sour Chicken', img: 'assets/Rectangle 8.png'),
   AppetizerData(ititle: 'Hot & Sour Chicken', img: 'assets/Rectangle 8.png'),
   AppetizerData(ititle: 'Hot & Sour Chicken', img: 'assets/Rectangle 8.png'),
