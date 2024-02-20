@@ -3,9 +3,11 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:meals/profile.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool showButton;
+
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-  const MyAppBar({super.key});
+  const MyAppBar({super.key, this.showButton = true});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
           icon: GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                if (showButton) Navigator.pop(context);
               },
               child: Image.asset('assets/Less Than.png')),
         ),

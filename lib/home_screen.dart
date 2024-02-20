@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:meals/cart.dart';
 import 'package:meals/model/container_box.dart';
 import 'package:meals/profile.dart';
 import 'package:meals/sorry.dart';
@@ -15,7 +16,10 @@ class HomeScreen extends StatelessWidget {
         // automaticallyImplyLeading: false,
         backgroundColor: HexColor('#827500'),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Cart()));
+          },
           icon: Image.asset('assets/cart.png'),
         ),
         actions: [

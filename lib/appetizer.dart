@@ -57,6 +57,8 @@ class _AppetizerState extends State<Appetizer> {
                   itemName: item.ititle,
                   imageUrl: item.img,
                   quantity: quantity,
+                  showButton: false,
+                  rPadding: 0,
                   // onIncrease: _increaseQuantity,
                   // onDecrease: _decreaseQuantity,
                 );

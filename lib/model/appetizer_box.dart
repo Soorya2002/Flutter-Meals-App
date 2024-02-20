@@ -6,14 +6,22 @@ class AppetizerBox extends StatelessWidget {
   final String itemName;
   final String imageUrl;
   final int quantity;
-  // final VoidCallback onIncrease;
-  // final VoidCallback onDecrease;
+  final bool showButton;
+  final double boxHeight;
+  final double imageWidth;
+  final double imageHeight;
+  final double rPadding;
 
   const AppetizerBox({
     super.key,
     required this.itemName,
     required this.imageUrl,
     required this.quantity,
+    this.showButton = true,
+    this.boxHeight = 80,
+    this.imageWidth = 81,
+    this.imageHeight = 68,
+    this.rPadding = 8,
     // required this.onIncrease,
     // required this.onDecrease
   });
@@ -28,130 +36,83 @@ class AppetizerBox extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => ItemDetail()));
           },
           child: Container(
-            width: 340,
-            height: 77,
+            width: 345,
+            height: boxHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15), color: Colors.white),
             child: Row(
               children: [
+                SizedBox(
+                  width: 20,
+                ),
                 Expanded(
                   flex: 3,
                   child: Column(
                     children: [
-                      Text(
-                        itemName,
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            itemName,
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       const Row(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 20),
-                            child: Text(
-                              "Qty",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          Text(
+                            "Qty",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           SizedBox(
                             width: 30,
                           ),
-                          Button(),
-
-                          // Row(
-                          //   children: [
-                          //     Container(
-                          //       width: 25,
-                          //       height: 26,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xffd9d9d9),
-                          //       ),
-                          //       child: IconButton(
-                          //         onPressed: onDecrease,
-                          //         icon: Icon(Icons.remove, size: 13),
-                          //       ),
-                          //     ),
-                          //     Container(
-                          //       width: 25,
-                          //       height: 26,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xffd9d9d9),
-                          //       ),
-                          //       child: Center(
-                          //         child: Text('$quantity'),
-                          //       ),
-                          //     ),
-                          //     Container(
-                          //       width: 25,
-                          //       height: 26,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xffd9d9d9),
-                          //       ),
-                          //       child: IconButton(
-                          //         onPressed: onIncrease,
-                          //         icon: Icon(
-                          //           Icons.add,
-                          //           size: 13,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // )
-
-                          // Container(
-                          //   width: 25,
-                          //   height: 26,
-                          //   decoration: BoxDecoration(
-                          //     color: Color(0xffd9d9d9),
-                          //   ),
-                          //   child: Padding(
-                          //     padding: const EdgeInsets.only(bottom: 10, right: 10),
-                          //     child: IconButton(
-                          //       onPressed: onDecrease,
-                          //       icon: Icon(
-                          //         Icons.remove,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // SizedBox(width: 8),
-                          // Container(
-                          //   width: 25,
-                          //   height: 26,
-                          //   decoration: BoxDecoration(
-                          //     color: Color(0xffd9d9d9),
-                          //   ),
-                          //   child: Text('$quantity'),
-                          // ),
-                          // SizedBox(width: 8),
-                          // Container(
-                          //   width: 25,
-                          //   height: 26,
-                          //   decoration: BoxDecoration(
-                          //     color: Color(0xffd9d9d9),
-                          //   ),
-                          //   child: IconButton(
-                          //     onPressed: onIncrease,
-                          //     icon: Icon(Icons.add),
-                          //   ),
-                          // ),
+                          Button(
+                            buttonColor: Color.fromRGBO(217, 217, 217, 1.0),
+                            iconColor: Colors.black,
+                          ),
                         ],
-                      )
+                      ),
+                      Row(
+                        children: [
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
+                          Spacer(),
+                          if (showButton)
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Remove Item',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ),
+                              ],
+                            )
+                        ],
+                      ),
                     ],
                   ),
                 ),
-                Spacer(),
-                Image.asset(
-                  imageUrl,
-                  width: 81,
-                  height: 68,
+                // Spacer(),
+                Padding(
+                  padding: EdgeInsets.only(right: rPadding),
+                  child: Image.asset(
+                    imageUrl,
+                    width: imageWidth,
+                    height: imageHeight,
+                  ),
                 ),
               ],
             ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatefulWidget {
-  const Button({super.key});
+  final Color buttonColor;
+  final Color iconColor;
+
+  const Button({super.key, required this.buttonColor, required this.iconColor});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -32,34 +35,41 @@ class _ButtonState extends State<Button> {
           width: 25,
           height: 26,
           decoration: BoxDecoration(
-            color: Color(0xffd9d9d9),
+            color: widget.buttonColor,
           ),
           child: IconButton(
             onPressed: _decreaseQuantity,
             icon: Icon(Icons.remove, size: 13),
+            color: widget.iconColor,
           ),
         ),
         Container(
           width: 25,
           height: 26,
           decoration: BoxDecoration(
-            color: Color(0xffd9d9d9),
+            color: widget.buttonColor,
           ),
           child: Center(
-            child: Text('$quantity'),
+            child: Text(
+              '$quantity',
+              style: TextStyle(
+                color: widget.iconColor,
+              ),
+            ),
           ),
         ),
         Container(
           width: 25,
           height: 26,
           decoration: BoxDecoration(
-            color: Color(0xffd9d9d9),
+            color: widget.buttonColor,
           ),
           child: IconButton(
             onPressed: _increaseQuantity,
             icon: Icon(
               Icons.add,
               size: 13,
+              color: widget.iconColor,
             ),
           ),
         ),

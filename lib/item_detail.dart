@@ -126,11 +126,11 @@ class ItemDetail extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(left: 15, top: 20),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Add this Item",
                       style: TextStyle(
                         color: Color.fromARGB(255, 137, 32, 78),
@@ -141,7 +141,10 @@ class ItemDetail extends StatelessWidget {
                     SizedBox(
                       width: 15,
                     ),
-                    Button()
+                    Button(
+                      buttonColor: Color.fromRGBO(129, 116, 0, 1.0),
+                      iconColor: Colors.white,
+                    ),
                   ],
                 ),
               ),
